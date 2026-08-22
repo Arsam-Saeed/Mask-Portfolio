@@ -62,7 +62,7 @@ export function getProfessionalEmailTemplate({
               <strong>Sender Email:</strong>
               <p style="margin-top: 8px;">
                 ${senderEmail}
-                ${dateTime}
+                
               </p>
             </div>
             <div> <p style="margin-top: 8px;">
