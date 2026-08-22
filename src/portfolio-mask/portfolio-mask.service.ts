@@ -31,6 +31,7 @@ export class PortfolioMaskService {
         html: getProfessionalEmailTemplate({
           senderEmail: createPortfolioMaskDto.senderEmail,
           message: createPortfolioMaskDto.message,
+          senderName:createPortfolioMaskDto.senderName,
         }),
       });
 

@@ -1,11 +1,15 @@
 interface ProfessionalEmailTemplateData {
   senderEmail: string;
   message: string;
+  senderName:string;
+  DateTime:Date;
 }
 
 export function getProfessionalEmailTemplate({
   senderEmail,
   message,
+  senderName,
+  DateTime,
 }: ProfessionalEmailTemplateData): string {
   return `
     <!DOCTYPE html>
@@ -58,6 +62,7 @@ export function getProfessionalEmailTemplate({
               <strong>Sender Email:</strong>
               <p style="margin-top: 8px;">
                 ${senderEmail}
+                ${DateTime}
               </p>
             </div>
 
@@ -67,6 +72,29 @@ export function getProfessionalEmailTemplate({
               background-color: #f8f8f8;
               border-radius: 6px;
             ">
+
+
+
+
+            <div style="
+              margin-top: 20px;
+              padding: 15px;
+              background-color: #f8f8f8;
+              border-radius: 6px;
+            ">
+              <strong>Sender Name:</strong>
+              <p style="margin-top: 8px;">
+                ${senderName}
+              </p>
+            </div>
+
+            <div style="
+              margin-top: 20px;
+              padding: 15px;
+              background-color: #f8f8f8;
+              border-radius: 6px;
+            ">
+
               <strong>Message:</strong>
               <p style="
                 margin-top: 8px;

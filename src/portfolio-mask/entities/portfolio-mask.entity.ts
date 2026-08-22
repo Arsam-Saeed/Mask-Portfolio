@@ -11,7 +11,7 @@ export class PortfolioMask {
     message!:string;
     @Column({ name:'sender_name',nullable:true})
     senderName!:string;
-    @CreateDateColumn({type:'timestamptz'})
+    @CreateDateColumn({ name :"date_time",type:'timestamp'})
     DateTime!:Date&TimeRanges;
     
 
