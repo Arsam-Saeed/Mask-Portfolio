@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn ,Column} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn ,Column,CreateDateColumn} from 'typeorm';
 @Entity({name:"Contact"})
 export class PortfolioMask {
     @PrimaryGeneratedColumn()
@@ -9,5 +9,11 @@ export class PortfolioMask {
     receiver_email!:string;
     @Column({nullable:true})
     message!:string;
+    @Column({nullable:true})
+    sender_name!:string;
+    @CreateDateColumn({type:'timestamptz'})
+    Date_Time!:Date&TimeRanges;
+    
+
 
 }
