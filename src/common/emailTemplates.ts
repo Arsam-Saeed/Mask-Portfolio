@@ -2,14 +2,14 @@ interface ProfessionalEmailTemplateData {
   senderEmail: string;
   message: string;
   senderName:string;
-  DateTime:Date;
+  dateTime:Date&TimeRanges;
 }
 
 export function getProfessionalEmailTemplate({
   senderEmail,
   message,
   senderName,
-  DateTime,
+  dateTime,
 }: ProfessionalEmailTemplateData): string {
   return `
     <!DOCTYPE html>
@@ -62,9 +62,13 @@ export function getProfessionalEmailTemplate({
               <strong>Sender Email:</strong>
               <p style="margin-top: 8px;">
                 ${senderEmail}
-                ${DateTime}
+                ${dateTime}
               </p>
             </div>
+            <div> <p style="margin-top: 8px;">
+                
+                ${dateTime}
+              </p></div>
 
             <div style="
               margin-top: 20px;

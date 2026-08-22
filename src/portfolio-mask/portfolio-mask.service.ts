@@ -32,6 +32,7 @@ export class PortfolioMaskService {
           senderEmail: createPortfolioMaskDto.senderEmail,
           message: createPortfolioMaskDto.message,
           senderName:createPortfolioMaskDto.senderName,
+          dateTime:createPortfolioMaskDto.dateTime
         }),
       });
 

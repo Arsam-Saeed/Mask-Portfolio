@@ -12,7 +12,7 @@ export class PortfolioMask {
     @Column({ name:'sender_name',nullable:true})
     senderName!:string;
     @CreateDateColumn({ name :"date_time",type:'timestamp'})
-    DateTime!:Date&TimeRanges;
+    dateTime!:Date&TimeRanges;
     
 
 
