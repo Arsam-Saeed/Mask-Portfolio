@@ -27,9 +27,9 @@ export class PortfolioMaskService {
         from: 'Portfolio Contact <onboarding@resend.dev>',
         to: "arsamsaeedkhan@gmail.com",
        
-        subject: `Portfolio Message from ${createPortfolioMaskDto.sender_email} - ${Date.now()}`,
+        subject: `Portfolio Message from ${createPortfolioMaskDto.senderEmail} - ${Date.now()}`,
         html: getProfessionalEmailTemplate({
-          senderEmail: createPortfolioMaskDto.sender_email,
+          senderEmail: createPortfolioMaskDto.senderEmail,
           message: createPortfolioMaskDto.message,
         }),
       });

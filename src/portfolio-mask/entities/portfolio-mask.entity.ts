@@ -4,15 +4,15 @@ export class PortfolioMask {
     @PrimaryGeneratedColumn()
     id!:number;
     @Column({nullable:true})
-    sender_email!:string;
+    senderEmail!:string;
     @Column({nullable:true})
-    receiver_email!:string;
+    receiverEmail!:string;
     @Column({nullable:true})
     message!:string;
-    @Column({nullable:true})
-    sender_name!:string;
+    @Column({ name:'sender_name',nullable:true})
+    senderName!:string;
     @CreateDateColumn({type:'timestamptz'})
-    Date_Time!:Date&TimeRanges;
+    DateTime!:Date&TimeRanges;
     
 
 
