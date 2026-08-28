@@ -60,6 +60,33 @@ export class PortfolioMaskService {
     }
   }
 
+  async sendOTP(email){
 
+    let digits = '0123456789';
+    let OTP = '';
+    let len = digits.length
+    for (let i = 0; i < 6; i++) {
+        OTP += digits[Math.floor(Math.random() * len)];
+    }
+
+     const resend = this.getResendClient();
+      const emailData = await resend.emails.send({
+        from: 'User varifications <onboarding@resend.dev>',
+        to: email,
+       
+        subject: `Your OPT Varifications Code - ${Date.now()}`,
+        html:  `Your OPT Varifications Code ${OTP}`
+  });
+
+      if (emailData.error) {
+        console.error('Resend Error:', emailData.error);
+      }
+
+      return {
+        success: true,
+        otp:OTP,
+        message: 'Message sent and saved successfully!',
+      };
+    } 
 
 }

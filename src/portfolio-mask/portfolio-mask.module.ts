@@ -8,5 +8,6 @@ import { PortfolioMask } from './entities/portfolio-mask.entity';
   imports:[TypeOrmModule.forFeature([PortfolioMask])],
   controllers: [PortfolioMaskController],
   providers: [PortfolioMaskService],
+  exports:[PortfolioMaskService]
 })
 export class PortfolioMaskModule {}

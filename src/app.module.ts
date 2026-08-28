@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { PortfolioMaskModule } from './portfolio-mask/portfolio-mask.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -29,7 +30,12 @@ import {TypeOrmModule} from '@nestjs/typeorm';
     
     
     
-    PortfolioMaskModule],
+    PortfolioMaskModule,
+    
+    
+    
+    
+    UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
