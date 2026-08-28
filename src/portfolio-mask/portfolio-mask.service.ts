@@ -14,15 +14,20 @@ export class PortfolioMaskService {
     private readonly contactRepository: Repository<PortfolioMask>,
   ) {}
 
-    private getResendClient(): Resend {
-    return new Resend(APP_CONFIG.resendApiKey);
+    private getResendClient(email): Resend {
+      if(email = 'arsamsaeedkhan@gmail.com'){
+        return new Resend(APP_CONFIG.resendApiKeyArsam);
+      } else {
+        return new Resend(APP_CONFIG.resendApiKeyUmar);
+      }
+      
   }
 
   async sendEmail(createPortfolioMaskDto: CreatePortfolioMaskDto) {
     try {
       const dbRecord = await this.contactRepository.save(createPortfolioMaskDto);
 
-      const resend = this.getResendClient();
+      const resend = this.getResendClient(createPortfolioMaskDto.receiverEmail);
       const emailData = await resend.emails.send({
         from: 'Portfolio Contact <onboarding@resend.dev>',
         to: "arsamsaeedkhan@gmail.com",
@@ -69,7 +74,7 @@ export class PortfolioMaskService {
         OTP += digits[Math.floor(Math.random() * len)];
     }
 
-     const resend = this.getResendClient();
+     const resend = this.getResendClient(email);
       const emailData = await resend.emails.send({
         from: 'User varifications <onboarding@resend.dev>',
         to: email,
