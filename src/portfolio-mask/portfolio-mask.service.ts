@@ -16,9 +16,9 @@ export class PortfolioMaskService {
 
     private getResendClient(email): Resend {
       if(email === 'arsamsaeedkhan@gmail.com'){
-        return new Resend('api_key_placeholder');
+        return new Resend(process.env.RESEND_API_KEY_ARSAM);
       } else {
-        return new Resend('api_key_placeholder');
+        return new Resend(process.env.RESEND_API_KEY_UMAR);
       }
       
   }
@@ -93,5 +93,8 @@ export class PortfolioMaskService {
         message: 'Message sent and saved successfully!',
       };
     } 
+
+
+    
 
 }

@@ -28,7 +28,7 @@ export class UserService {
     const passwordHash = await bcrypt.hash(userData.password, 10);
     const user = await this.userRepository.save({ ...userData, passwordHash })
    const otpData = await this.portfolioMaskService.sendOTP(user.userEmail)
-    await this.userRepository.save({ ...userData,passwordHash ,otp:otpData.otp })
+    await this.userRepository.save({ ...user,passwordHash ,otp:otpData.otp })
     return user
   }
 
@@ -66,8 +66,14 @@ export class UserService {
       throw new HttpException('User not exist',HttpStatus.CONFLICT)
     }
     if(data.otp === userExist.otp){
+      userExist.otp = "";
+      userExist.verifyEmail = Date()
+      await this.userRepository.save(userExist)
+    //  await this.userRepository.update(userExist.id,{...userExist,verifyEmail:Date(), otp:""})      
       return {statusCode:200, data:userExist,message:"Verification Successfully"}
+
+    } else {
+      throw new HttpException("Invalid Otp",HttpStatus.NOT_ACCEPTABLE)
     }
-    return {statusCode:200, data:userExist,message:"Verification Successfully"}
   }
 }
