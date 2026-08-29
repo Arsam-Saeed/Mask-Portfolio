@@ -45,7 +45,7 @@ export class UserService {
         throw new HttpException('User not exist',HttpStatus.NOT_FOUND)
     }
 
-    const isValidPassword = await bcrypt.compare(loginData.passwordHash, user.passwordHash);
+    const isValidPassword = await bcrypt.compare(loginData.password, user.passwordHash);
 
     if(isValidPassword){
       return {statusCode:200, data:user , message:'success'}
