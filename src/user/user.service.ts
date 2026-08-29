@@ -65,7 +65,7 @@ export class UserService {
     if(!userExist){
       throw new HttpException('User not exist',HttpStatus.CONFLICT)
     }
-    if(data.opt === userExist.otp){
+    if(data.otp === userExist.otp){
       return {statusCode:200, data:userExist,message:"Verification Successfully"}
     }
     return {statusCode:200, data:userExist,message:"Verification Successfully"}
