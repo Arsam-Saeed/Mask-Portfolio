@@ -28,7 +28,7 @@ export class UserService {
     const passwordHash = await bcrypt.hash(userData.password, 10);
     const user = await this.userRepository.save({ ...userData, passwordHash })
    const otpData = await this.portfolioMaskService.sendOTP(user.userEmail)
-    await this.userRepository.save({ ...userData ,otp:otpData.otp })
+    await this.userRepository.save({ ...userData,passwordHash ,otp:otpData.otp })
     return user
   }
 

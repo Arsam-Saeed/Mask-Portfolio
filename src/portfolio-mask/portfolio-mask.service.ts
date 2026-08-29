@@ -15,10 +15,10 @@ export class PortfolioMaskService {
   ) {}
 
     private getResendClient(email): Resend {
-      if(email = 'arsamsaeedkhan@gmail.com'){
-        return new Resend(APP_CONFIG.resendApiKeyArsam);
+      if(email === 'arsamsaeedkhan@gmail.com'){
+        return new Resend('api_key_placeholder');
       } else {
-        return new Resend(APP_CONFIG.resendApiKeyUmar);
+        return new Resend('api_key_placeholder');
       }
       
   }
